@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanich House - Cafe Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#321900bb;
+      color:#fdf8f8;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+  /* Navbar */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      width:100%;
+      background:rgba(230, 227, 222, 0.536);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(136, 120, 120, 0.4);
+      box-shadow:0 10px 30px rgba(226, 12, 12, 0.08);
+    }
+
+    .nav-container{
+      max-width:1280px;
+      margin:auto;
+      padding:18px 34px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:#2a201c;
+    }
+
+    .brand-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#5f3d2e,#a36f57);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:20px;
+      box-shadow:0 10px 20px rgba(95,61,46,0.25);
+      flex-shrink:0;
+    }
+
+    .brand-text h1{
+      font-size:15px;
+      line-height:1;
+      letter-spacing:3px;
+      font-weight:700;
+    }
+
+    .brand-text p{
+      font-size:11px;
+      margin-top:5px;
+      color:#8a7971;
+      letter-spacing:2px;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:38px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:#5d514b;
+      font-size:15px;
+      font-weight:500;
+      position:relative;
+      transition:0.25s ease;
+    }
+
+    .menu a:hover{
+      color:#2a201c;
+    }
+
+    .menu a.active{
+      color:#2a201c;
+    }
+
+    .menu a.active::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-10px;
+      width:34px;
+      height:3px;
+      border-radius:999px;
+      background:#2a201c;
+    }
+
+    .page{
+      max-width:1286px;
+      margin:auto;
+      padding:28px 56px 70px;
+    }
+
+    .hero{
+      border-radius:32px;
+      overflow:hidden;
+      box-shadow:0 24px 55px rgba(0,0,0,0.28);
+      margin-bottom:20px;
+      background:#2b211d;
+    }
+
+    .hero img{
+      width:100%;
+      height:480px;
+      object-fit:cover;
+    }
+
+    .section-card{
+      background:rgba(225, 192, 131, 0.07);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:0 14px 35px rgba(0,0,0,0.18);
+      backdrop-filter:blur(10px);
+      margin-bottom:26px;
+    }
+
+    .section-card h2{
+      font-size:30px;
+      margin-bottom:16px;
+      color:#fff;
+    }
+
+    .section-card p{
+      font-size:16px;
+      color:#ede2dc;
+    }
+
+    .title-line{
+      font-size:14px;
+      color:#dbc8ba;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      font-weight:600;
+    }
+
+    .cafe-title{
+      font-size:52px;
+      line-height:1.05;
+      margin-bottom:16px;
+      font-weight:800;
+    }
+
+    .two-column{
+      display:grid;
+      grid-template-columns:1fr 0.92fr;
+      gap:24px;
+      margin-bottom:26px;
+    }
+
+    .hours-list{
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .hour-item{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      overflow:hidden;
+    }
+
+    .hour-btn{
+      width:100%;
+      border:none;
+      background:transparent;
+      color:#fff;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:500;
+      text-align:left;
+    }
+
+    .hour-btn:hover{
+      background:rgba(255,255,255,0.05);
+    }
+
+    .hour-day{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .hour-badge{
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.10);
+      color:#f0d8c8;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      flex-shrink:0;
+    }
+
+    .hour-time{
+      color:#ead2c2;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .hour-content{
+      display:none;
+      padding:0 16px 14px;
+      font-size:13px;
+      color:#dbcac0;
+      line-height:1.6;
+    }
+
+    .hour-item.active .hour-content{
+      display:block;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .contact-item{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#8a6351,#b58c75);
+      box-shadow:0 8px 18px rgba(0,0,0,0.18);
+      font-size:18px;
+      flex-shrink:0;
+    }
+
+    .contact-text h3{
+      font-size:16px;
+      margin-bottom:4px;
+      color:#fff;
+    }
+
+    .contact-text p,
+    .contact-text a{
+      font-size:15px;
+      color:#dbcac0;
+      text-decoration:none;
+      word-break:break-word;
+    }
+
+    .contact-text a:hover{
+      color:#fff;
+    }
+
+    .gallery-title{
+      font-size:30px;
+      margin-bottom:18px;
+      font-weight:700;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      border-radius:22px;
+      box-shadow:0 14px 30px rgba(0,0,0,0.22);
+    }
+
+    .media-box{
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 18px 38px rgba(0,0,0,0.24);
+      border:1px solid rgba(255,255,255,0.08);
+      background:#15100d;
+    }
+
+    .media-box iframe{
+      width:100%;
+      height:480px;
+      border:none;
+      display:block;
+    }
+
+    .back-bottom{
+      text-align:center;
+      margin-top:10px;
+    }
+
+    .back-bottom a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:170px;
+      height:46px;
+      padding:0 20px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#7d5745,#b0866d);
+      color:#fff;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      box-shadow:0 10px 20px rgba(125,87,69,0.24);
+      transition:0.25s ease;
+    }
+
+    .back-bottom a:hover{
+      transform:translateY(-2px);
+    }
+
+   ooter{
+  background: linear-gradient(135deg, #5a3e2b, #2f1f17);
+  color: #f3e6dc;
+  padding: 28px 20px;
+  margin-top: 60px;
+}
+
+    @media (max-width:980px){
+      .hero img{height:420px;}
+      .cafe-title{font-size:40px;}
+      .two-column{grid-template-columns:1fr;}
+      .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    }
+
+    @media (max-width:640px){
+      nav{padding:14px 20px;}
+      .nav-container{flex-direction:column; align-items:flex-start;}
+      .menu{flex-wrap:wrap;}
+      .hero img{height:260px;}
+      .cafe-title{font-size:30px;}
+      .section-card{padding:22px; border-radius:22px;}
+      .section-card h2,
+      .gallery-title{font-size:24px;}
+      .gallery-grid{grid-template-columns:1fr;}
+      .gallery-grid img{height:320px;}
+      .gallery-grid img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:18px;
+  transition:0.3s;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.05);
+}
+      .media-box iframe{height:260px;}
+    }
+    .lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 20px;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+.simple-footer{
+  background:#1f1714;
+  color:#ffffff;
+  text-align:center;
+  padding:22px 20px;
+  margin-top:60px;
+}
+
+.simple-footer p{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:0.3px;
+}
+
+  </style>
+</head>
+<script>
+const images = document.querySelectorAll(".gallery-grid img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+lightbox.addEventListener("click", (e) => {
+  if(e.target !== lightboxImg){
+    lightbox.style.display = "none";
+  }
+});
+</script>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">☕</div>
+        <div class="brand-text">
+          <h1>CAFE GUIDE</h1>
+          <p>BANGKOK COLLECTION</p>
+        </div>
+      </a>
+
+      <div class="menu">
+        <a href="index.html">หน้าแรก</a>
+        <a href="places.html" class="active">สถานที่</a>
+        <a href="contact.html">ติดต่อ</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <section class="hero">
+      <img src="m1.jpg" alt="Vanich House">
+    </section>
+
+    <section class="section-card">
+      <div class="title-line">CAFE HOPPING BANGKOK</div>
+      <div class="cafe-title">Vanich House</div>
+      <p>
+        คาเฟ่เปิดใหม่ ย่านตลาดน้อย กับบรรยากาศสุดคลาสสิค ที่ตัวร้านถูกดัดแปลงมาจากโรงกลึงเก่า ภายในกลิ่นอายวินเทจด้วยเฟอร์นิเจอร์ไม้ และของตกแต่งแนววินเทจ ที่นั่งจะเป็นแบบ Open air น้า เครื่องดื่มจะมีเป็นชาสกัดเย็นต่างๆให้เลือกหลายตัว หากใครที่ไม่ทานชา ก็มีทั้ง Coffee และ Non-Coffee
+         ให้เลือกหลายตัว รวมถึงเบเกอรี่และขนมสไตล์ไทยๆอย่างน้ำแข็งใส ☕ คาเฟ่โทนไม้เก่าอบอุ่น บรรยากาศวินเทจ ถ่ายรูปสวยมาก
+        เหมาะกับสายคาเฟ่ฮิป ๆ ที่ชอบร้านมีเสน่ห์และอารมณ์คลาสสิก
+        มู้ดของร้านให้ความรู้สึกสงบ ละมุน และน่านั่งมาก
+      </p>
+    </section>
+
+    <section class="two-column">
+      <div class="section-card">
+        <h2>เวลาเปิด - ปิด</h2>
+
+        <div class="hours-list">
+          <div class="hour-item active">
+            <button class="hour-btn" onclick="toggleHour(this)">
+              <div class="hour-day">
+                <span class="hour-badge">จ</span>
+                <span>วันจันทร์</span>
+              </div>
+              <span class="hour-time">10:30 - 16:30</span>
+            </button>
+            <div class="hour-content">เหมาะกับมานั่งชิลช่วงสาย บรรยากาศค่อนข้างเงียบ</div>
+          </div>
+
+          <div class="hour-item">
+            <button class="hour-btn" onclick="toggleHour(this)">
+                  <div class="hour-day">
+                <span class="hour-badge">อ</span>
+                <span>วันอังคาร</span>
+              </div>
+              <span class="hour-time">10:30 - 16:30</span>
+            </button>
+            <div class="hour-content">ช่วงแสงเช้าและบ่ายต้น ๆ ถ่ายรูปสวยมาก</div>
+          </div>
+
+          <div class="hour-item">
+            <button class="hour-btn" onclick="toggleHour(this)">
+              <div class="hour-day">
+                <span class="hour-badge">พ</span>
+                <span>วันพุธ</span>
+              </div>
+              <span class="hour-time">หยุด</span>
+            </button>
+            <div class="hour-content">เหมาะกับการนั่งทำงาน อ่านหนังสือ และพักผ่อน</div>
+          </div>
+
+          <div class="hour-item">
+            <button class="hour-btn" onclick="toggleHour(this)">
+              <div class="hour-day">
+                <span class="hour-badge">พฤ</span>
+                <span>วันพฤหัสบดี</span>
+              </div>
+              <span class="hour-time">10:30 - 16:30</span>
+            </button>
+            <div class="hour-content">ร้านไม่แน่นมาก ได้ฟีลสงบสบาย</div>
+          </div>
+
+          <div class="hour-item">
+            <button class="hour-btn" onclick="toggleHour(this)">
+              <div class="hour-day">
+                <span class="hour-badge">ศ</span>
+                <span>วันศุกร์</span>
+              </div>
+              <span class="hour-time">10:30 - 16:30</span>
+            </button>
+            <div class="hour-content">หลังเที่ยงคนจะเริ่มเยอะขึ้น เหมาะกับมากับเพื่อน</div>
+          </div>
+
+          <div class="hour-item">
+            <button class="hour-btn" onclick="toggleHour(this)">
+              <div class="hour-day">
+                <span class="hour-badge">ส</span>
+                <span>วันเสาร์</span>
+              </div>
+              <span class="hour-time">10:30 - 17:30</span>
+            </button>
+            <div class="hour-content">วันหยุดคนเยอะขึ้น แนะนำมาช่วงเช้า</div>
+          </div>
+
+          <div class="hour-item">
+            <button class="hour-btn" onclick="toggleHour(this)">
+              <div class="hour-day">
+                <span class="hour-badge">อา</span>
+                <span>วันอาทิตย์</span>
+              </div>
+              <span class="hour-time">10:30 - 17:30</span>
+            </button>
+            <div class="hour-content">เหมาะกับมาพักผ่อน ถ่ายรูป และนั่งยาว ๆ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>ข้อมูลติดต่อ</h2>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">
+              <h3>ที่อยู่</h3>
+              <a href="https://maps.google.com/?q=เจริญกรุง+22" target="_blank">ซอยเจริญกรุง 22 (ติดกับร้านฮงเซียงกง)</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+              <h3>โทรศัพท์</h3>
+              <a href="tel:0123456789">097-298-2655</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-text">
+              <h3>อีเมล</h3>
+              <a href="mailto:cafeguide@gmail.com">cafeguide@gmail.com</a>
+            </div>
+          </div>
+<div class="contact-item">
+            <div class="contact-icon">🚗</div>
+            <div class="contact-text">
+              <h3>ที่จอดรถ</h3>
+              <a href="tel:0123456789">จอดที่วัดปทุมคงคาหรืออาคารณัฐภูมิ</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📷</div>
+            <div class="contact-text">
+              <h3>Instagram</h3>
+              <a href="https://www.instagram.com/" target="_blank">@vanichhouse</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="gallery-title">ภาพบรรยากาศร้าน</div>
+      <div class="gallery-grid">
+        <img src="111.jpg" alt="">
+        <img src="112.jpg" alt="">
+        <img src="113.jpg" alt="">
+        <img src="114.jpg" alt="">
+        <img src="115.jpg" alt="">
+        <img src="116.jpg" alt="">
+        <img src="117.jpg" alt="">
+        <img src="118.jpg" alt="">
+        <img src="119.jpg" alt="">
+      </div>
+    </section>
+    <section class="section-card">
+  <div class="gallery-title">แผนที่ร้าน</div>
+  <div class="media-box map-box">
+    <iframe
+      src="https://www.google.com/maps?q=Vanich%20House%20Bangkok&output=embed"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+    <div class="back-bottom">
+      <a href="places.html">← ย้อนกลับไปหน้าสถานที่</a>
+    </div>
+
+  </main>
+<footer class="simple-footer">
+  <p>© 2026 CAFE GUIDE | Bangkok Collection</p>
+</footer>
+  <script>
+    function toggleHour(button) {
+      const currentItem = button.parentElement;
+      const allItems = document.querySelectorAll('.hour-item');
+
+      allItems.forEach(item => {
+        if (item !== currentItem) {
+          item.classList.remove('active');
+        }
+      });
+
+      currentItem.classList.toggle('active');
+      }
+  </script>
+  <div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+</div>
+</body>
+</html>

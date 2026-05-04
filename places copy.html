@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 Bangkok Cofe Guide | สถานที่</title>
+<link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body {
+  background:
+    linear-gradient(rgba(246, 237, 224, 0.92), rgba(232, 214, 190, 0.94)),
+    url("img2.jpg") center/cover fixed;
+  color: #4a3328;
+}
+
+    a{
+      text-decoration:none;
+    }
+
+    /* Navbar */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      width:100%;
+      background:rgba(236, 228, 215, 0.72);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,0.4);
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .nav-container{
+      max-width:1280px;
+      margin:auto;
+      padding:18px 34px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:#2a201c;
+    }
+
+    .brand-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#5f3d2e,#a36f57);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:20px;
+      box-shadow:0 10px 20px rgba(95,61,46,0.25);
+      flex-shrink:0;
+    }
+
+    .brand-text h1{
+      font-size:15px;
+      line-height:1;
+      letter-spacing:3px;
+      font-weight:700;
+    }
+
+    .brand-text p{
+      font-size:11px;
+      margin-top:5px;
+      color:#8a7971;
+      letter-spacing:2px;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:38px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:#5d514b;
+      font-size:15px;
+      font-weight:500;
+      position:relative;
+      transition:0.25s ease;
+    }
+
+    .menu a:hover{
+      color:#2a201c;
+    }
+
+    .menu a.active{
+      color:#2a201c;
+    }
+
+    .menu a.active::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-10px;
+      width:34px;
+      height:3px;
+      border-radius:999px;
+      background:#2a201c;
+    }
+
+    /* Hero */
+    .hero{
+      max-width:1280px;
+      margin:auto;
+      padding:60px 34px 26px;
+    }
+
+    .hero-box{
+  padding:50px 42px;
+  border-radius:32px;
+  background:rgba(255, 248, 238, 0.68);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(132, 93, 64, 0.22);
+  box-shadow:
+    0 25px 50px rgba(87, 59, 38, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.55);
+  color:#5a3b2e;
+  position:relative;
+  overflow:hidden;
+}
+
+    .hero-box::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(255,255,255,0.12), transparent 35%, transparent 65%, rgba(255,255,255,0.08));
+      pointer-events:none;
+    }
+
+   .hero-small{
+  font-size:13px;
+  letter-spacing:3px;
+  color:#9a6b4c;
+  margin-bottom:14px;
+  position:relative;
+  z-index:1;
+}
+
+.hero-box h2{
+  font-size:54px;
+  line-height:1.05;
+  font-weight:700;
+  margin-bottom:14px;
+  color:#5a3b2e;
+  text-shadow:none;
+  position:relative;
+  z-index:1;
+}
+
+.hero-box p{
+  max-width:650px;
+  font-size:16px;
+  line-height:1.8;
+  color:#7a5a48;
+  position:relative;
+  z-index:1;
+}
+    /* Section */
+    .places-section{
+      max-width:1280px;
+      margin:auto;
+      padding:14px 34px 80px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:28px;
+    }
+
+    .section-head h3{
+  color:#5a3b2e;
+  font-size:32px;
+  font-weight:700;
+  text-shadow:none;
+}
+
+.section-head span{
+  color:#8a6a58;
+  font-size:14px;
+}
+
+    /* Cards */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:26px;
+    }
+
+    .card{
+  display: flex;
+  flex-direction: column;
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      background:rgba(255,255,255,0.16);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:
+        0 22px 45px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.16);
+      transition:transform 0.35s ease, box-shadow 0.35s ease;
+      
+    }
+
+    .card:hover{
+      transform:translateY(-10px) scale(1.01);
+      box-shadow:
+        0 28px 55px rgba(0,0,0,0.24),
+        inset 0 1px 0 rgba(218, 150, 150, 0.2);
+    }
+
+    .card-image{
+      height:235px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform 0.5s ease;
+    }
+
+    .card:hover .card-image img{
+      transform:scale(1.08);
+    }
+
+    .card-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(24,16,13,0.18), rgba(24,16,13,0.03));
+    }
+
+    .card-body{
+      background:rgba(255,255,255,0.83);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      padding:22px;
+      flex: 1;
+    }
+
+    .card-body h4{
+      font-size:23px;
+      color:#2b211d;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+.detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7d5745, #b0866d);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(125, 87, 69, 0.24);
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+.detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7d5745, #b0866d);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(125, 87, 69, 0.24);
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.detail-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(125, 87, 69, 0.3);
+}
+.detail-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(125, 87, 69, 0.3);
+}
+    .location{
+      color:#7a6861;
+      font-size:14px;
+      line-height:1.7;
+      margin-bottom:14px;
+      min-height:48px;
+    }
+
+    .desc{
+      color:#5f534d;
+      font-size:14px;
+      line-height:1.8;
+      margin-bottom:18px;
+      min-height:74px;
+    }
+
+    .card-actions{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .tag{
+      font-size:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(151,109,83,0.12);
+      color:#7d5d4d;
+      font-weight:600;
+    }
+
+    .btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 30px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+    /* Contact */
+    .contact{
+      max-width:1280px;
+      margin:auto;
+      padding:0 34px 90px;
+    }
+
+    .contact-box{
+      padding:34px 30px;
+      border-radius:28px;
+      background:rgba(255,255,255,0.16);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.22);
+      box-shadow:0 20px 40px rgba(0,0,0,0.16);
+      color:white;
+    }
+
+    .contact-box h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .contact-box p{
+      font-size:15px;
+      line-height:1.9;
+      color:rgba(255,255,255,0.94);
+    }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.footer-top {
+  width: 100%;
+  background:#F1E4D2; /* ครีมแบบรูป 2 */
+  color: #f4f4f4;
+  padding: 48px 0 40px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 36px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 26px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  padding-right: 18px;
+}
+
+.footer-about {
+  flex: 1.35;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  font-weight: 700;
+    color:#3B281F;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42px;
+  height: 3px;
+  border-radius: 999px;
+  background: #442801;
+}
+
+.footer-col p,
+.footer-col li,
+.footer-col a {
+  font-size: 14px;
+  line-height: 1.95;
+   color:#6c4938;
+}
+
+.footer-col p {
+  margin: 0;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 6px;
+}
+
+.footer-col a {
+  text-decoration: none;
+  transition: 0.22s ease;
+}
+
+.footer-col a:hover {
+    color:#2F211B;
+  padding-left: 4px;
+}
+
+.footer-contact a {
+  color: #ff0000;
+}
+
+.footer-bottom {
+  width: 100%;
+  background:#8B5E3C; /* น้ำตาลแบบรูป 2 */
+  color: #ffffff;
+  text-align: center;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    gap: 18px;
+  }
+
+  .footer-col,
+  .footer-about {
+    flex: 1 1 45%;
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    padding: 36px 0 30px;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .footer-col,
+  .footer-about {
+    min-width: 100%;
+    padding-right: 0;
+  }
+
+  .footer-col h4 {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
+
+  .footer-bottom {
+    padding: 16px 16px;
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+    @media (max-width: 1100px){
+      .cards{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .hero-box h2{
+        font-size:44px;
+      }
+    }
+
+    @media (max-width: 768px){
+      .nav-container{
+        padding:16px 18px;
+        flex-direction:column;
+        gap:14px;
+      }
+
+      .menu{
+        gap:22px;
+        justify-content:center;
+      }
+
+      .hero,
+      .places-section,
+      .contact{
+        padding-left:18px;
+        padding-right:18px;
+      }
+
+      .hero-box{
+        padding:34px 24px;
+      }
+
+      .hero-box h2{
+        font-size:34px;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">☕</div>
+        <div class="brand-text">
+          <h1>CAFE GUIDE</h1>
+          <p>BANGKOK COLLECTION</p>
+        </div>
+      </a>
+
+      <div class="menu">
+  <a href="index.html" class="active">หน้าแรก</a>
+  <a href="places.html">สถานที่</a>
+  <a href="contact.html">ติดต่อ</a>
+</div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-box">
+      <div class="hero-small">BANGKOK CAFE LIST</div>
+      <h2>10 Bangkok Cofe Guide</h2>
+      <p>
+        รวม 10 คาเฟ่น่าไปในกรุงเทพและใกล้เคียง โทนอบอุ่น มินิมอล ถ่ายรูปสวย
+        พร้อมดีไซน์หน้าสถานที่แบบกระจกใส ดูมีมิติ นุ่มละมุน และทันสมัยมากขึ้น
+      </p>
+    </div>
+  </section>
+
+  <section class="places-section">
+    <div class="section-head">
+      <h3>สถานที่แนะนำ</h3>
+      <span>เลือกคาเฟ่ที่ตรงกับสไตล์ของคุณ</span>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-image"><img src="1.jpg" alt="Vanich House"></div>
+        <div class="card-body">
+          <h4>Vanich House</h4>
+          <div class="location">📍 เจริญกรุง 22</div>
+          <div class="desc">คาเฟ่โทนไม้เก่าอบอุ่น บรรยากาศวินเทจ ถ่ายรูปสวยและให้ความรู้สึกสงบมาก</div>
+          <div class="card-actions">
+            <span class="tag">Vintage Mood</span>
+            <a href="vanich-house.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="2.jpg" alt="Par.ris"></div>
+        <div class="card-body">
+          <h4>Par.ris</h4>
+          <div class="location">📍 เอกมัย 21</div>
+          <div class="desc">คาเฟ่มู้ดเรียบหรู เหมาะกับสายมินิมอล ชอบร้านแสงสวย โทนละมุน และดูแพง</div>
+          <div class="card-actions">
+            <span class="tag">Minimal Luxe</span>
+            <a href="par-ris.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="3.jpg" alt="Slole"></div>
+        <div class="card-body">
+          <h4>Slole</h4>
+          <div class="location">📍 โชคชัย 4 ซอย 52/1</div>
+          <div class="desc">คาเฟ่สวนบรรยากาศโปร่งสบาย มีความธรรมชาติสูง เหมาะกับวันพักผ่อนและถ่ายรูป</div>
+          <div class="card-actions">
+            <span class="tag">Garden Cafe</span>
+           <a href="slole.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="4.jpg" alt="Libi House"></div>
+        <div class="card-body">
+          <h4>Libi House</h4>
+          <div class="location">📍 ซ.เกษมสันต์ 2 เขตปทุมวัน</div>
+          <div class="desc">คาเฟ่ใจกลางเมืองที่ให้ฟีลอบอุ่นและนุ่มนวล เหมาะกับคนชอบคาเฟ่เรียบ ๆ แต่มีเสน่ห์</div>
+          <div class="card-actions">
+            <span class="tag">Soft Cozy</span>
+          <a href="libi-house.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="5.jpg" alt="Tavy’s Home Cafe"></div>
+        <div class="card-body">
+          <h4>Tavy’s Home Cafe</h4>
+          <div class="location">📍 ซอย สุขุมวิท 97/1</div>
+          <div class="desc">คาเฟ่ฟีลบ้านอบอุ่น เป็นกันเอง มู้ดละมุนสบายตา เหมาะกับการนั่งชิลช่วงบ่าย</div>
+          <div class="card-actions">
+            <span class="tag">Homey Vibe</span>
+        <a href="tavys-home-cafe.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="6.jpg" alt="AYATANA Cafe"></div>
+        <div class="card-body">
+          <h4>AYATANA Cafe</h4>
+          <div class="location">📍 เจริญกรุง 13</div>
+          <div class="desc">คาเฟ่ดีไซน์เรียบหรู โทนน้ำตาลอบอุ่น อินทีเรียร์สวย เหมาะกับคนชอบร้านดูแพง</div>
+          <div class="card-actions">
+            <span class="tag">Modern Warm</span>
+            <a href="ayatana-cafe.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="7.jpg" alt="Dokmai Pratoojaekan Village"></div>
+        <div class="card-body">
+          <h4>Dokmai Pratoojaekan Village</h4>
+          <div class="location">📍 อ.ไทรน้อย นนทบุรี</div>
+          <div class="desc">บ้านไม้กลางธรรมชาติ วิวเขียวสบายตา บรรยากาศเงียบสงบและเหมาะกับวันพักใจ</div>
+          <div class="card-actions">
+            <span class="tag">Nature View</span>
+          <a href="dokmai-Pratoojaekan-Village.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="8.jpg" alt="Mika Bakehouse"></div>
+        <div class="card-body">
+          <h4>Mika Bakehouse</h4>
+          <div class="location">📍 ในโครงการ Park Lane เอกมัย</div>
+          <div class="desc">คาเฟ่เบเกอรี่บรรยากาศดี เหมาะกับสายขนม สายถ่ายรูป และคนที่ชอบร้านสะอาดอบอุ่น</div>
+          <div class="card-actions">
+            <span class="tag">Bakehouse</span>
+            <a href="mika-bakehouse.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="9.jpg" alt="Varinda Coffee Roaster"></div>
+        <div class="card-body">
+          <h4>Varinda Coffee Roaster</h4>
+          <div class="location">📍 ทวีวัฒนา - กาญจนาภิเษก 5</div>
+          <div class="desc">ร้านสำหรับคนรักกาแฟจริงจัง โทนร้านอบอุ่น เท่ และมีเสน่ห์แบบสายสเปเชียลตี้</div>
+          <div class="card-actions">
+            <span class="tag">Coffee Lover</span>
+           <a href="varinda-coffee-roaster.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image"><img src="10.jpg" alt="Sasi Cafe"></div>
+        <div class="card-body">
+          <h4>Sasi Cafe</h4>
+          <div class="location">📍 บรมราชชนนี 67 ตลิ่งชัน</div>
+          <div class="desc">คาเฟ่บรรยากาศสงบ โทนธรรมชาติ เหมาะกับการนั่งชิล พักผ่อน และถ่ายรูปแบบละมุน</div>
+          <div class="card-actions">
+            <span class="tag">Calm & Cozy</span>
+           <a href="sasi-cafe.html" class="detail-btn">ดูเพิ่มเติม</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </section>
+     <div class="footer-top">
+    <div class="footer-container">
+
+      <div class="footer-col footer-about">
+        <h4>เกี่ยวกับเว็บไซต์</h4>
+        <p>
+          เว็บไซต์ 10 Bangkok Cafe Guide 
+          จัดทำขึ้นเพื่อรวบรวมคาเฟ่น่าเที่ยวในกรุงเทพ
+          และพื้นที่ใกล้เคียงโดยคัดเลือกร้านที่มีบรรยากาศดี 
+          มุมถ่ายรูปสวยและมีเอกลักษณ์เฉพาะตัวเพื่อช่วยให้
+          ผู้เข้าชมสามารถค้นหาสถานที่พักผ่อนที่เหมาะกับสไตล์
+          ของตนเองได้สะดวกมากยิ่งขึ้น
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>เมนูแนะนำ</h4>
+        <ul>
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="places.html">สถานที่ทั้งหมด</a></li>
+          <li><a href="contact.html">ติดต่อ</a></li>
+          <li><a href="#">รีวิวคาเฟ่</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>หมวดหมู่</h4>
+        <ul>
+          <li><a href="#">คาเฟ่มินิมอล</a></li>
+          <li><a href="#">คาเฟ่ธรรมชาติ</a></li>
+          <li><a href="#">คาเฟ่ใกล้ BTS</a></li>
+          <li><a href="#">Pet Friendly</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>ติดต่อ</h4>
+        <ul class="footer-contact">
+          <li>อีเมล: <a href="mailto:cafeguide@gmail.com">cafeguide@gmail.com</a></li>
+          <li>โทร: <a href="tel:0999999999">099-999-9999</a></li>
+          <li>เวลาเปิดเว็บไซต์: ทุกวัน</li>
+          <li>Bangkok, Thailand</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      สาขาวิชาคอมพิวเตอร์ธุรกิจ สาขางานคอมพิวเตอร์ธุรกิจ<br>
+      วิทยาลัยเทคนิคกำแพงเพชร<br>
+      สำนักงานคณะกรรมการการอาชีวศึกษา กระทรวงศึกษาธิการ<br>
+      ปีการศึกษา 2568
+    </p>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>ติดต่อ - Cafe Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+html{
+      scroll-behavior:smooth;
+    }
+
+    body {
+        min-height:100vh;
+      background: linear-gradient(180deg, #ffead5 0%, #ddd6cf 100%);
+      color: #d5d4d4;
+    }
+/* Navbar */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  width:100%;
+  background:rgba(236, 228, 215, 0.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.4);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.nav-container{
+  max-width:1280px;
+  margin:auto;
+  padding:18px 34px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:#2a201c;
+  text-decoration:none !important;
+}
+
+.brand:visited,
+.brand:hover,
+.brand:active{
+  text-decoration:none !important;
+  color:#2a201c;
+}
+
+.brand *{
+  text-decoration:none !important;
+}
+
+.brand-icon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#5f3d2e,#a36f57);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:20px;
+  box-shadow:0 10px 20px rgba(95,61,46,0.25);
+  flex-shrink:0;
+}
+
+.brand-text h1{
+  font-size:15px;
+  line-height:1;
+  letter-spacing:3px;
+  font-weight:700;
+  text-decoration:none !important;
+}
+
+.brand-text p{
+  font-size:11px;
+  margin-top:5px;
+  color:#8a7971;
+  letter-spacing:2px;
+  text-decoration:none !important;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:38px;
+  flex-wrap:wrap;
+}
+
+.menu a{
+  color:#5d514b;
+  font-size:15px;
+  font-weight:500;
+  position:relative;
+  transition:0.25s ease;
+  text-decoration:none !important;
+}
+
+.menu a:visited,
+.menu a:hover,
+.menu a:active{
+  text-decoration:none !important;
+}
+
+.menu a:hover{
+  color:#2a201c;
+}
+
+.menu a.active{
+  color:#2a201c;
+  text-decoration:none !important;
+}
+
+.menu a.active::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-10px;
+  width:34px;
+  height:3px;
+  border-radius:999px;
+  background:#2a201c;
+}
+    .contact-hero {
+      max-width: 1150px;
+      margin: 60px auto 30px;
+      padding: 0 20px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.12));
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 32px;
+      padding: 55px;
+      min-height: 240px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-small {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #7f7268;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero-box h2 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: #2f241f;
+    }
+
+    .hero-box p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #5f544d;
+      max-width: 760px;
+    }
+
+    .contact-content {
+      max-width: 1150px;
+      margin: 0 auto 70px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+    }
+
+    .contact-card,
+    .social-card {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      padding: 35px 32px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .contact-card h3,
+    .social-card h3 {
+      font-size: 28px;
+      margin-bottom: 22px;
+      color: #2f241f;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(120, 100, 90, 0.15);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .icon {
+      min-width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #7d5743, #b18464);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 6px 14px rgba(125, 87, 67, 0.2);
+    }
+
+    .info-text h4 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #3d2f28;
+    }
+
+    .info-text p,
+    .info-text a {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #6c6059;
+      text-decoration: none;
+    }
+
+    .info-text a:hover {
+      color: #3d2f28;
+    }
+
+    .social-card p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #655952;
+      margin-bottom: 22px;
+    }
+
+    .social-links {
+      display: grid;
+      gap: 14px;
+    }
+
+    .social-links a {
+      display: block;
+      text-decoration: none;
+      color: #3f3129;
+      background: #f8f4f1;
+      border: 1px solid #eadfd6;
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+      background: #efe6df;
+    }
+
+    footer {
+      background: #221916;
+      color: #f3ece6;
+      text-align: center;
+      padding: 22px;
+      font-size: 15px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-box h2 {
+        font-size: 40px;
+      }
+
+      .menu {
+        gap: 20px;
+      }
+
+      .menu a {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero-box {
+        padding: 34px 24px;
+        border-radius: 24px;
+      }
+
+      .hero-box h2 {
+        font-size: 32px;
+      }
+
+      .hero-box p {
+        font-size: 16px;
+      }
+
+      .contact-card,
+      .social-card {
+        padding: 26px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <nav>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">☕</div>
+        <div class="brand-text">
+          <h1>CAFE GUIDE</h1>
+          <p>BANGKOK COLLECTION</p>
+        </div>
+      </a>
+
+      <div class="menu">
+ <a href="index.html">หน้าแรก</a>
+<a href="places.html" >สถานที่</a>
+<a href="contact.html" class="active">ติดต่อ</a>
+</div>
+    </div>
+  </nav>
+
+
+  <section class="contact-hero">
+    <div class="hero-box">
+      <div class="hero-small">CONTACT CAFE GUIDE</div>
+      <h2>ติดต่อเรา</h2>
+      <p>
+        หากต้องการสอบถามข้อมูลเพิ่มเติมเกี่ยวกับคาเฟ่ในกรุงเทพ
+        หรืออยากแนะนำร้านใหม่ ๆ ให้เราอัปเดตในลิสต์
+        สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-content">
+    <div class="contact-card">
+      <h3>ช่องทางการติดต่อ</h3>
+
+      <div class="info-item">
+        <div class="icon">☎</div>
+        <div class="info-text">
+          <h4>โทรศัพท์</h4>
+          <p>012-345-6789</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="icon">✉</div>
+        <div class="info-text">
+          <h4>อีเมล</h4>
+          <a href="mailto:cafeguide@gmail.com">cafeguide@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="icon">⌂</div>
+        <div class="info-text">
+          <h4>พื้นที่แนะนำ</h4>
+          <p>Bangkok, Thailand</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-card">
+      <h3>ติดตามเรา</h3>
+      <p>
+        อัปเดตร้านกาแฟใหม่ มุมถ่ายรูปสวย และคาเฟ่น่านั่งประจำสัปดาห์
+        ได้ผ่านโซเชียลของเรา
+      </p>
+
+      <div class="social-links">
+        <a href="https://facebook.com/" target="_blank">Facebook — Cafe Guide Bangkok</a>
+        <a href="https://instagram.com/" target="_blank">Instagram — @cafeguide.bkk</a>
+        <a href="mailto:cafeguide@gmail.com">Email — cafeguide@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 CAFE GUIDE | Bangkok Collection
+  </footer>
+
+</body>
+</html>
